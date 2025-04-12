@@ -1,0 +1,143 @@
+import 'package:bhumibd/app/data/end_point/api.dart';
+import 'package:bhumibd/app/modules/service/widget/build_item.dart';
+import 'package:bhumibd/app/resource/widget/custom_text.dart';
+import 'package:bhumibd/app/resource/widget/custom_web_view.dart';
+import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
+
+import '../controllers/service_controller.dart';
+
+class ServiceView extends GetView<ServiceController> {
+  const ServiceView({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text('Services'),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            BuildItem(
+                title: 'ব্লগ',
+                onTap: () {
+                  Get.to(
+                          () => const CustomWebView(
+                            url: appApi.blogURL,
+                            isShowAppBar: true,
+                          ),
+                  );
+                },
+            ),
+
+            BuildItem(
+              title: 'নিউজ',
+              onTap: () {
+                Get.to(
+                      () => const CustomWebView(
+                    url: appApi.newsURL,
+                    isShowAppBar: true,
+                  ),
+                );
+              },
+            ),
+
+            BuildItem(
+              title: 'মৌজা',
+              onTap: () {
+                Get.to(
+                      () => const CustomWebView(
+                    url: appApi.mojaURL,
+                    isShowAppBar: true,
+                  ),
+                );
+              },
+            ),
+
+
+            BuildItem(
+              title: 'জমির আইন',
+              onTap: () {
+                Get.to(
+                      () => const CustomWebView(
+                    url: appApi.jomirAinURL,
+                    isShowAppBar: true,
+                  ),
+                );
+              },
+            ),
+
+
+            BuildItem(
+              title: 'ভূমির হিসাব',
+              onTap: () {
+                Get.to(
+                      () => const CustomWebView(
+                    url: appApi.bumiHisabURL,
+                    isShowAppBar: true,
+                  ),
+                );
+              },
+            ),
+
+            CustomText(
+                title: 'More',
+                fontSize: 18,
+                fontWeight: FontWeight.bold
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            BuildItem(
+              title: 'আমাদের সম্পর্কে',
+              icon: Icons.info_outline,
+              onTap: () {
+                Get.to(
+                      () => const CustomWebView(
+                    url: appApi.aboutMeURL,
+                    isShowAppBar: true,
+                  ),
+                );
+              },
+            ),
+            BuildItem(
+              title: 'Terms and condition',
+              icon: Icons.description,
+              onTap: () {
+                Get.to(
+                      () => const CustomWebView(
+                    url: appApi.termsAndConditionsURL,
+                    isShowAppBar: true,
+                  ),
+                );
+              },
+            ),
+            BuildItem(
+              title: 'Privacy Policy',
+              icon: Icons.privacy_tip,
+              onTap: () {
+                Get.to(
+                      () => const CustomWebView(
+                    url: appApi.privacyPolicyURL,
+                    isShowAppBar: true,
+                  ),
+                );
+              },
+            ),
+
+
+
+
+          ],
+        ),
+      ),
+    );
+  }
+
+}
